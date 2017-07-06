@@ -23,33 +23,16 @@ export class InventoryComponent implements OnInit {
 
   inventories: Inventory[];
 
-  constructor(private router: Router, private inventoryService: InventoryService) {
+  constructor() {
   }
 
   ngOnInit() {
-    /*
-     this.inventoryService
-     .getInventories()
-     .then(inventories => this.inventories = inventories);
-     */
+
     this.inventories = INVENTORIES;
   }
 
   createInventory(inventoryForm: FormGroup): void {
-    /*
-     this.inventoryService
-     .createInventory(inventoryForm.value)
-     .then(inventory => {
-     if( this.inventories.length > 0 ){
-     const lastInventory = this.inventories.slice(-1)[0];
-     inventory.id = lastInventory.id + 1;
-     }else{
-     inventory.id = 1;
-     }
-     this.inventories.push(inventory);
-     inventoryForm.reset();
-     });
-     */
+
 
     if (this.inventories.length > 0) {
       const lastInventory = this.inventories.slice(-1)[0];
@@ -62,25 +45,12 @@ export class InventoryComponent implements OnInit {
   }
 
   deleteInventory(inventory: Inventory): void {
-    /*
-     this.inventoryService
-     .deleteInventory(inventory)
-     .then(() => {
-     this.inventories = this.inventories.filter(b => b !== inventory);
-     });
-     */
+
     this.inventories = this.inventories.filter(b => b !== inventory);
   }
 
   updateInventory(inventories: any) {
-    /*
-     this.inventoryService
-     .updateInventory(inventories.edited)
-     .then(() => {
-     const i = this.inventories.indexOf(inventories.original);
-     this.inventories[i] = inventories.edited;
-     });
-     */
+
     const i = this.inventories.indexOf(inventories.original);
     this.inventories[i] = inventories.edited;
   }
