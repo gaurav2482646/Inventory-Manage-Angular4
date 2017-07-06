@@ -1,0 +1,8 @@
+<div class="container">
+
+  <app-inventory-new (createNewInventoryEvent)="createInventory($event)"></app-inventory-new>
+
+  <app-inventory-list [inventories]="inventories" (destroyInventoryEvent)="deleteInventory($event)"
+                      (updateInventoryEvent)="updateInventory($event)"></app-inventory-list>
+
+</div>

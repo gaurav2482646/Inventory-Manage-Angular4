@@ -1,0 +1,51 @@
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    <h3 class="panel-title">
+      <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>Add a Inventory
+    </h3>
+  </div>
+  <div class="panel-body">
+    <form class="form-horizontal" [formGroup]="inventoryForm" (submit)="createInventory()">
+      <fieldset>
+        <div class="form-group">
+          <label for="inputName" class="col-lg-2 control-label">Name</label>
+          <div class="col-lg-5">
+            <input [(ngModel)]="newInventory.name" class="form-control" id="inputName" placeholder="Name" type="text"
+                   name="name" formControlName="name">
+            <div *ngIf="formErrors.name" class="alert alert-danger">{{ formErrors.name }}</div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="selectType" class="col-lg-2 control-label">Type</label>
+          <div class="col-lg-5">
+            <select [(ngModel)]="newInventory.type" class="form-control" id="selectType" name="type"
+                    formControlName="type">
+              <option value="">---</option>
+              <option value="printer">Printer</option>
+              <option value="telephone">Telephone</option>
+              <option value="projector">Projector</option>
+              <option value="Fan">Scanner</option>
+              <option value="fan">Fan</option>
+            </select>
+            <div *ngIf="formErrors.type" class="alert alert-danger">{{ formErrors.type }}</div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="inputPrice" class="col-lg-2 control-label">Price</label>
+          <div class="col-lg-5">
+            <input [(ngModel)]="newInventory.price" class="form-control" id="inputPrice" placeholder="Price"
+                   type="number" name="price" formControlName="price">
+            <div *ngIf="formErrors.price" class="alert alert-danger">{{ formErrors.price }}</div>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="col-lg-5 col-lg-offset-2">
+            <button type="submit" class="btn btn-success" [disabled]="!inventoryForm.valid">
+              <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Add Inventory
+            </button>
+          </div>
+        </div>
+      </fieldset>
+    </form>
+  </div>
+</div>
