@@ -7,7 +7,7 @@ import {Inventory} from '../inventory';
   styleUrls: ['./inventory-list.component.css'],
 })
 export class InventoryListComponent implements OnInit {
-
+  public searchString: string;
   @Input() inventories;
   @Output() destroyInventoryEvent = new EventEmitter();
   @Output() updateInventoryEvent = new EventEmitter();

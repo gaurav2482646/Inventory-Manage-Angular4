@@ -5,7 +5,7 @@
     </h3>
   </div>
   <div class="input-group">
-    <input type="text" class="form-control" #inName placeholder="Search">
+    <input type="text" class="form-control" name="searchString" placeholder="Type to search..." [(ngModel)]="searchString">
     <div class="input-group-btn">
       <button class="btn btn-default">
         <i class="glyphicon glyphicon-search"></i>
@@ -25,7 +25,7 @@
       </tr>
       </thead>
       <tbody>
-      <tr class="info" *ngFor="let inventory of inventories ">
+      <tr class="info" *ngFor="let inventory of inventories | inventorySearch : 'name' : searchString; ">
         <td>{{inventory.id}}</td>
         <td>{{inventory.name}}</td>
         <td>{{inventory.type}}</td>

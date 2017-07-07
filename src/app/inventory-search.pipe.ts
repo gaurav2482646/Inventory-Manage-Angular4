@@ -5,9 +5,22 @@ import {Inventory} from "./inventory/inventory";
   name: 'inventorySearch'
 })
 export class InventorySearchPipe implements PipeTransform {
+  transform(items: any[], field: string, value: string): any[] {
 
-  transform(inventories: Inventory[], args: any[]): any {
-    return inventories.filter(inventory => inventory.name.toLowerCase().indexOf(args[0].toLowerCase()) !== -1);
+    if (!items) {
+
+      return [];
+
+    }
+
+    if (!field || !value) {
+
+      return items;
+
+    }
+
+    return items.filter(singleItem => singleItem[field].toLowerCase().includes(value.toLowerCase()));
+
   }
 
 }
